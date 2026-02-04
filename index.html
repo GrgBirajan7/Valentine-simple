@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Favorite Human 💗</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Cherry+Bomb+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <div id="progress-container" class="progress-bar hidden"></div>
+
+    <!-- <div id="easter-eggs" class="hidden">
+        <img src="https://img.icons8.com/color/96/hello-kitty.png" class="sanrio-friend" style="top: 10%; left: 5%;"
+            onclick="chat('Cute Cute 🎀')" alt="HK">
+        <div class="sanrio-friend text-4xl" style="bottom: 10%; right: 5%;"
+            onclick="chat('Totoro is protecting this page for you 🍃')">🍃</div>
+    </div> -->
+    <div id="easter-eggs" class="hidden">
+        <img src="https://img.icons8.com/color/96/hello-kitty.png"
+            class="absolute w-14 md:w-20 top-[5%] left-[8%] animate-wiggle cursor-pointer z-10"
+            onclick="chat('Cute Cute! 🎀')" alt="HK">
+
+        <img src="https://img.icons8.com/color/96/my-melody.png"
+            class="absolute w-14 md:w-20 top-[12%] right-[10%] animate-wiggle cursor-pointer z-10"
+            onclick="chat('I LOVEEE YOUOU SO MUCHH! 🌸')">
+
+        <img src="https://img.icons8.com/?size=100&id=2LtrYXjQi614&format=png&color=000000"
+            class="absolute w-14 md:w-20 bottom-[15%] left-[5%] animate-wiggle cursor-pointer z-10"
+            onclick="chat('I LOVEE YOU SO MUCHHH MOREEE! 💜')">
+
+        <img src="https://img.icons8.com/?size=100&id=nT8MbKCHd41C&format=png&color=000000"
+            class="absolute w-16 md:w-24 bottom-[8%] right-[12%] animate-wiggle cursor-pointer z-10"
+            onclick="chat('CHUPPPA BABYYY! 💋')">
+
+        <img src="https://i.pinimg.com/originals/dd/9a/76/dd9a76d2faaeb9c6a8198ff9ecf1c309.jpg"
+            class="absolute w-14 md:w-20 top-[2%] left-[45%] animate-wiggle cursor-pointer z-10"
+            onclick="chat('gORGUIUS! 🤭')">
+
+        <img src="https://img.icons8.com/color/96/keroppi.png"
+            class="absolute w-12 md:w-16 top-[40%] left-[2%] animate-wiggle cursor-pointer z-10"
+            onclick="chat('bolana babyyy pleaseeee! 😭')">
+
+        <img src="https://img.icons8.com/?size=100&id=QkzAsyczfUoS&format=png&color=000000"
+            class="absolute w-12 md:w-16 top-[45%] right-[3%] animate-wiggle cursor-pointer z-10"
+            onclick="chat('babyyy mero babyyyyyyy! 💋')">
+
+        <img src="https://banner2.cleanpng.com/cb4/cce/fti/aqcd8xl1e.webp"
+            class="absolute w-12 md:w-16 bottom-[3%] left-[30%] animate-wiggle cursor-pointer z-10"
+            onclick="chat('your voice is so cuteeee! 🥰')">
+
+        <img src="https://img.icons8.com/?size=100&id=109689&format=png&color=000000"
+            class="absolute w-16 md:w-20 top-[25%] left-[12%] animate-wiggle cursor-pointer z-10"
+            onclick="chat('Twinkle twinkle  little star cutie! ⭐')">
+    </div>
+
+    <!-- 0️⃣ Password Step -->
+    <div id="step-0" class="step active fade-in">
+        <div id="password-gif-container" class="mb-6">
+            <img id="password-gif" src="assets/gif/code-close.gif" alt="Bubu Dudu"
+                class="w-32 h-32 object-contain mx-auto">
+        </div>
+        <h2 class="title-font text-3xl text-pink-500 mb-8">Our Secret Password?</h2>
+        <input type="password" id="password-input" placeholder="hint: something i call you..." autocomplete="off"
+            oninput="handlePasswordInput()">
+        <button onclick="checkPassword()"
+            class="mt-8 btn-valentine px-10 py-3 rounded-full text-xl title-font text-pink-600 wiggle">Unlock Heart
+            ❤️</button>
+        <p id="password-hint" class="mt-4 text-pink-400 h-6"></p>
+    </div>
+
+    <!-- 1️⃣ Welcome Step -->
+    <div id="step-1" class="step">
+        <div class="floating mb-8 text-8xl">🎀</div>
+        <h1 class="title-font text-5xl text-pink-500 mb-4">Hoiii Mero Cute Babyyy 😚</h1>
+        <p class="text-xl mb-8 text-pink-400">I know I messed up being late and I don't want excuses<br>But still please
+            accept my
+            apology 😭 <br>Please herdeu 😚</p>
+        <button onclick="nextStep()"
+            class="btn-valentine px-12 py-4 rounded-full text-2xl title-font text-pink-600 wiggle">Chuppa Babyyy
+            💋</button>
+    </div>
+
+    <!-- 1.25️⃣ Song Quiz Step -->
+    <div id="step-quiz" class="step">
+        <h2 class="title-font text-4xl text-pink-500 mb-8">What’s our song? 💗</h2>
+        <div class="grid grid-cols-1 gap-4 w-full max-w-sm">
+            <button onclick="checkQuizOption(false)"
+                class="btn-valentine p-4 rounded-2xl text-lg hover:bg-pink-50 transition-colors">"I Think They Call This
+                Love"</button>
+            <button onclick="checkQuizOption(true)"
+                class="btn-valentine p-4 rounded-2xl text-lg hover:bg-pink-50 transition-colors">"There Is a Light That
+                Never Goes Out"</button>
+            <button onclick="checkQuizOption(false)"
+                class="btn-valentine p-4 rounded-2xl text-lg hover:bg-pink-50 transition-colors">"Doremon
+                Lalalalala"</button>
+            <button onclick="checkQuizOption(false)"
+                class="btn-valentine p-4 rounded-2xl text-lg hover:bg-pink-50 transition-colors">"Best Part (feat
+                H.E.R)"</button>
+        </div>
+    </div>
+
+    <!-- 1.5️⃣ Music Player Step -->
+    <div id="step-1-5" class="step">
+        <h2 class="title-font text-3xl text-pink-500 mb-6">A song for us... 🎶</h2>
+        <div class="music-card fade-in">
+            <img src="assets/album_cover.jpg" alt="The Smiths Album Cover" class="album-art"
+                onerror="this.src='https://placehold.co/300x300/fce4ec/f06292?text=The+Smiths'">
+            <h3 class="font-bold text-lg text-pink-600 truncate px-2">There Is a Light That Never Goes Out</h3>
+            <p class="text-pink-400 mb-4">The Smiths</p>
+
+            <div id="audio-placeholder" class="py-4">
+                <button id="load-audio-btn" onclick="initializeAudio()"
+                    class="bg-pink-500 text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg animate-bounce">🎵
+                    Play Song</button>
+            </div>
+
+            <audio id="main-audio" controls class="w-full h-10 mb-2 px-2 hidden" preload="auto">
+                <source id="audio-source" type="audio/mp4">
+                Your browser does not support the audio element.
+            </audio>
+            <p id="audio-status" class="text-[10px] text-pink-400 italic">"To die by your side is such a heavenly way to
+                die..."</p>
+        </div>
+        <button onclick="nextStep()" class="mt-8 btn-valentine px-8 py-2 rounded-full text-pink-500">Keep Listening &
+            Continue →</button>
+    </div>
+
+    <!-- 5️⃣ Recognize This Face? Step -->
+    <div id="step-5" class="step">
+        <h2 id="reveal-text" class="title-font text-3xl text-pink-500 mb-6">Recognize this face? 😏</h2>
+
+        <div id="reveal-container" class="relative cursor-pointer group mb-8" onclick="revealPhoto()">
+            <img id="reveal-img" src="1.jpg" alt="Reveal Photo"
+                class="w-64 h-64 object-cover rounded-[30px] border-4 border-white shadow-xl transition-all duration-700">
+            <div id="reveal-hint" class="mt-4 text-pink-400 italic">“Click to see who's this handsome fellow... even
+                when his face is covered 😏”</div>
+        </div>
+
+        <div id="action-buttons" class="hidden flex gap-4 fade-in">
+            <button onclick="kissAction(true)"
+                class="btn-valentine px-8 py-3 rounded-full text-xl title-font text-pink-600 wiggle">Kiss 💋</button>
+            <button id="slap-btn" onclick="kissAction(false)"
+                class="btn-valentine px-8 py-3 rounded-full text-xl title-font text-pink-400 transition-all duration-1000">Slap
+                🙄</button>
+        </div>
+
+        <button id="next-reveal-btn" onclick="nextStep()"
+            class="hidden mt-8 btn-valentine px-8 py-2 rounded-full text-pink-500">Continue the journey →</button>
+    </div>
+
+    <!-- 6️⃣ Flower Page Step -->
+    <div id="step-flower" class="step">
+        <h2 class="title-font text-4xl text-pink-500 mb-8 fade-in">For my cute cute babyyy 🌸 <br> I LOVEEE YOUUU SOO
+            MUCHHH 💋</h2>
+
+        <div class="relative flex items-center justify-center w-full h-[60vh]">
+            <!-- Orbiting Messages -->
+            <div class="orbiter o1">my only</div>
+            <div class="orbiter o2">my babyyy</div>
+            <div class="orbiter o3">my safe place</div>
+            <div class="orbiter o4">mine 🫶</div>
+
+            <!-- Main Bouquet -->
+            <img src="assets/bouquet.png" alt="Bouquet"
+                class="bouquet-img floating-bouquet max-h-full max-w-[80vw] object-contain drop-shadow-2xl">
+        </div>
+
+        <button onclick="nextStep()" class="mt-8 btn-valentine px-8 py-2 rounded-full text-pink-500">Next →</button>
+    </div>
+
+    <div id="step-7" class="step">
+        <h2 class="title-font text-3xl text-pink-500 mb-2">Our Story 🎥</h2>
+        <p class="text-sm text-gray-400 mb-6 italic">A year of us...</p>
+
+        <div class="film-strip-viewport">
+            <div class="film-grain"></div>
+            <div class="film-track">
+                <!-- First Set -->
+                <div class="film-frame"><img src="assets/us/march.jpg" class="film-photo">
+                    <div class="film-label">March</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/april.jpg" class="film-photo">
+                    <div class="film-label">April</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/may.jpg" class="film-photo">
+                    <div class="film-label">May</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/june.jpg" class="film-photo">
+                    <div class="film-label">June</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/july.jpg" class="film-photo">
+                    <div class="film-label">July</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/august.jpg" class="film-photo">
+                    <div class="film-label">August</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/september.jpg" class="film-photo">
+                    <div class="film-label">September</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/october.jpg" class="film-photo">
+                    <div class="film-label">October</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/november.jpg" class="film-photo">
+                    <div class="film-label">November</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/december.jpg" class="film-photo">
+                    <div class="film-label">December</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/january.jpg" class="film-photo">
+                    <div class="film-label">January</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/feburary.jpg" class="film-photo">
+                    <div class="film-label">February</div>
+                </div>
+
+                <!-- Duplicate Set for Seamless Loop -->
+                <div class="film-frame"><img src="assets/us/march.jpg" class="film-photo">
+                    <div class="film-label">March</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/april.jpg" class="film-photo">
+                    <div class="film-label">April</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/may.jpg" class="film-photo">
+                    <div class="film-label">May</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/june.jpg" class="film-photo">
+                    <div class="film-label">June</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/july.jpg" class="film-photo">
+                    <div class="film-label">July</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/august.jpg" class="film-photo">
+                    <div class="film-label">August</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/september.jpg" class="film-photo">
+                    <div class="film-label">September</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/october.jpg" class="film-photo">
+                    <div class="film-label">October</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/november.jpg" class="film-photo">
+                    <div class="film-label">November</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/december.jpg" class="film-photo">
+                    <div class="film-label">December</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/january.jpg" class="film-photo">
+                    <div class="film-label">January</div>
+                </div>
+                <div class="film-frame"><img src="assets/us/feburary.jpg" class="film-photo">
+                    <div class="film-label">February</div>
+                </div>
+            </div>
+        </div>
+
+        <button onclick="nextStep()" class="btn-valentine px-8 py-2 rounded-full text-pink-500 mt-8">One last thing...
+            →</button>
+    </div>
+
+    <div id="step-8" class="step">
+        <h2 class="title-font text-3xl text-pink-500 mb-6">A Tiny Note... 💌</h2>
+        <div class="notebook-paper">
+            <div id="notebook-photo" class="notebook-photo-container">
+                <img src="assets/us/babies.jpg" alt="Us">
+            </div>
+            <div id="typewriter-content" class="typewriter-text"></div>
+        </div>
+        <button id="next-letter-btn" onclick="nextStep()"
+            class="mt-8 btn-valentine px-8 py-2 rounded-full text-pink-500 hidden fade-in">One last thing... →</button>
+    </div>
+
+    <div id="step-9" class="step">
+        <div id="lily-petals-container" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
+        <div id="finale-stage-1" class="relative z-10">
+            <div class="mb-6 h-[200px] flex items-center justify-center">
+                <img id="final-gif" src="assets/gif/please.gif" alt="Bubu Dudu"
+                    class="max-h-full object-contain transition-opacity duration-300">
+            </div>
+            <h2 class="title-font text-5xl text-pink-500 mb-8 floating">Will you be my Valentine?</h2>
+            <div class="flex gap-4 flex-col md:flex-row justify-center items-center h-20">
+                <button id="yes-btn" onclick="celebrate()" onmouseenter="handleYesEnter()"
+                    onmouseleave="handleYesLeave()"
+                    class="btn-valentine px-12 py-4 rounded-full text-3xl title-font text-green-500 hover:scale-110 transition-transform">YES!
+                    ♥️</button>
+                <!-- <button id="no-btn" onmouseover="moveNo()" onmouseenter="handleNoEnter()" onmouseleave="handleNoLeave()"
+                    class="px-8 py-4 rounded-full text-xl font-bold text-gray-400 bg-gray-200 transition-all absolute md:relative">No...</button> -->
+                <button id="no-btn" onmouseover="moveNo()" onmouseenter="handleNoEnter()" onmouseleave="handleNoLeave()"
+                    class="px-8 py-4 rounded-full text-xl font-bold text-gray-400 bg-gray-200 transition-all absolute top-20 left-1/2 -translate-x-1/2 md:relative md:top-0 md:left-0 md:translate-x-0">
+                    No...
+                </button>
+            </div>
+        </div>
+        <div id="finale-stage-2" class="hidden text-center z-10 relative">
+            <img src="assets/gif/kisscat.gif" alt="Kisses" class="kiss-cat-circle">
+            <h1 class="title-font text-5xl text-pink-600 mb-4">Yayyy! ♥️</h1>
+            <div class="celebration-text text-xl sm:text-2xl font-bold">
+                <p class="mb-2">i knew you'd say yes mero cutie cutie 💋💋</p>
+                <p class="mb-2">i love you so much ♥️</p>
+                <p>cute cute</p>
+            </div>
+            <button onclick="resetToLetter()"
+                class="mt-8 text-pink-400 underline hover:text-pink-600 transition-colors">Read the letter again?
+                💌</button>
+        </div>
+    </div>
+
+    <div id="toast"
+        class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-white px-6 py-3 rounded-full shadow-2xl border-2 border-pink-400 text-lg hidden z-[500] whitespace-nowrap">
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ears -->
+  <ellipse cx="70" cy="50" rx="20" ry="40" fill="#fff" stroke="#ffb7c5" stroke-width="5"/>
+  <ellipse cx="130" cy="50" rx="20" ry="40" fill="#fff" stroke="#ffb7c5" stroke-width="5"/>
+  <!-- Head -->
+  <ellipse cx="100" cy="110" rx="60" ry="50" fill="#fff" stroke="#ffb7c5" stroke-width="5"/>
+  <!-- Eyes -->
+  <circle cx="80" cy="100" r="5" fill="#333"/>
+  <circle cx="120" cy="100" r="5" fill="#333"/>
+  <!-- Cheeks -->
+  <circle cx="70" cy="115" r="8" fill="#ffb7c5" opacity="0.6"/>
+  <circle cx="130" cy="115" r="8" fill="#ffb7c5" opacity="0.6"/>
+  <!-- Mouth -->
+  <path d="M90 115 Q100 125 110 115" stroke="#333" stroke-width="3" fill="none"/>
+</svg>

@@ -1,0 +1,12 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Petals -->
+  <path d="M100 100 Q60 50 100 20 Q140 50 100 100" fill="#fff0f5" stroke="#ffc0d0" stroke-width="2"/>
+  <path d="M100 100 Q140 140 180 100 Q150 60 100 100" fill="#fff0f5" stroke="#ffc0d0" stroke-width="2"/>
+  <path d="M100 100 Q60 140 20 100 Q50 60 100 100" fill="#fff0f5" stroke="#ffc0d0" stroke-width="2"/>
+  <path d="M100 100 Q100 160 50 180 Q60 140 100 100" fill="#fff0f5" stroke="#ffc0d0" stroke-width="2"/>
+  <path d="M100 100 Q100 160 150 180 Q140 140 100 100" fill="#fff0f5" stroke="#ffc0d0" stroke-width="2"/>
+  <!-- Center -->
+  <circle cx="100" cy="100" r="5" fill="#ffd700"/>
+  <!-- Stem hint -->
+  <path d="M100 100 Q100 150 100 200" stroke="#90ee90" stroke-width="4" fill="none" opacity="0.5"/>
+</svg>
