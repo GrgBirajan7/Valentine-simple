@@ -731,4 +731,13 @@ body {
         font-size: 0.95rem;
         margin-top: 5px;
     }
+
+    /* Ensure button is visible on mobile for letter page */
+    #step-8 {
+        padding-bottom: 150px;
+        /* Extra space for the button + safe area */
+        display: block;
+        /* Switch to block to avoid flex centering issues on long content */
+        padding-top: 50px;
+    }
 }

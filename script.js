@@ -321,7 +321,6 @@ But please know this I love you soo much with my stubborn and trying to be bette
 I hope i can make it up to you.
 
 I love you babyyy and i want to make sure i also match the efforts you put in.
-
                             - Your Babyyy ❤️♥️`;
 
 function startLetterTypewriter() {
