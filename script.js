@@ -328,22 +328,30 @@ function moveNo() {
 }
 
 function celebrate() {
-    document.getElementById('finale-stage-1').classList.add('hidden');
-    document.getElementById('finale-stage-2').classList.remove('hidden');
-    setInterval(() => {
-        const x = Math.random() * window.innerWidth;
-        const emoji = ['❤️', '💖', '🎀', '♥️', '💋'][Math.floor(Math.random() * 5)];
-        const p = document.createElement('div');
-        p.innerText = emoji;
-        p.style.position = 'fixed';
-        p.style.left = x + 'px';
-        p.style.top = '-50px';
-        p.style.fontSize = Math.random() * 20 + 20 + 'px';
-        p.style.transition = 'all 4s linear';
-        document.body.appendChild(p);
-        setTimeout(() => { p.style.top = window.innerHeight + 50 + 'px'; p.style.transform = `rotate(${Math.random() * 360}deg)`; }, 100);
-        setTimeout(() => p.remove(), 4000);
-    }, 100);
+    // First show the happy gif
+    setFinalGif('happy');
+
+    // Wait 1.5 seconds so user can see the happy reaction before celebration
+    setTimeout(() => {
+        document.getElementById('finale-stage-1').classList.add('hidden');
+        document.getElementById('finale-stage-2').classList.remove('hidden');
+
+        // Start the heart rain animation
+        setInterval(() => {
+            const x = Math.random() * window.innerWidth;
+            const emoji = ['❤️', '💖', '🎀', '♥️', '💋'][Math.floor(Math.random() * 5)];
+            const p = document.createElement('div');
+            p.innerText = emoji;
+            p.style.position = 'fixed';
+            p.style.left = x + 'px';
+            p.style.top = '-50px';
+            p.style.fontSize = Math.random() * 20 + 20 + 'px';
+            p.style.transition = 'all 4s linear';
+            document.body.appendChild(p);
+            setTimeout(() => { p.style.top = window.innerHeight + 50 + 'px'; p.style.transform = `rotate(${Math.random() * 360}deg)`; }, 100);
+            setTimeout(() => p.remove(), 4000);
+        }, 100);
+    }, 1500);
 }
 
 const letterText = `Mero Babyyy,
