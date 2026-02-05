@@ -9,6 +9,8 @@ body {
     background-color: var(--baby-pink);
     font-family: 'Gaegu', cursive;
     overflow: hidden;
+    /* overflow-x: hidden; */
+    /* overflow-y: scroll; */
     color: #4a4a4a;
     height: 100%;
     width: 100%;
@@ -457,7 +459,7 @@ body {
     background-color: #fff9f0;
     width: 90%;
     max-width: 600px;
-    min-height: 50vh;
+    min-height: 100%;
     height: auto;
     margin: 0 auto;
     padding: 40px;
@@ -739,11 +741,37 @@ body {
 
     /* Ensure button is visible on mobile for letter page - FIX SPECIFICITY */
     #step-8.step.active {
-        padding-bottom: 150px !important;
-        display: flex !important;
-        flex-direction: column;
-        justify-content: flex-start !important;
-        padding-top: 50px;
+        padding-bottom: 100px !important;
+        display: block !important;
+        /* Block instead of flex to allow natural flow */
+        padding-top: 30px;
+        overflow-y: auto !important;
+        height: 100vh;
+    }
+
+    /* Fix notebook paper on mobile */
+    #step-8 .notebook-paper {
+        min-height: auto !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        margin-bottom: 20px;
+    }
+
+    /* Fix typewriter text containment */
+    #step-8 .typewriter-text {
+        position: relative;
+        z-index: 5;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+        padding-right: 10px;
+    }
+
+    /* Ensure button stays below content */
+    #step-8 #next-letter-btn {
+        margin: 20px auto !important;
+        display: block !important;
     }
 
     /* Film strip mobile adjustments */
@@ -776,6 +804,15 @@ body {
     /* Better button sizes for touch */
     .btn-valentine {
         min-height: 44px;
+    }
+
+    /* Fix flower page button cutoff */
+    #step-flower.step.active {
+        padding-bottom: 120px !important;
+        display: block !important;
+        padding-top: 30px;
+        overflow-y: auto !important;
+        height: 100vh;
     }
 }
 

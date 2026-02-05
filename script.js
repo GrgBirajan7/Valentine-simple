@@ -269,29 +269,59 @@ function moviePop(title, note) {
 // }
 function moveNo() {
     const btn = document.getElementById('no-btn');
+    const yesBtn = document.getElementById('yes-btn');
 
-    // 1. Get the button's current dimensions
+    // Get button dimensions
     const btnWidth = btn.offsetWidth;
     const btnHeight = btn.offsetHeight;
 
-    // 2. Calculate the safe maximum boundaries
-    // We subtract the button size so it doesn't "poke" out the right/bottom
-    const maxX = window.innerWidth - btnWidth;
-    const maxY = window.innerHeight - btnHeight;
+    // Get Yes button position to avoid overlap
+    const yesRect = yesBtn.getBoundingClientRect();
 
-    // 3. Generate random coordinates within the safe zone
-    // We use Math.max(0, ...) to ensure coordinates aren't negative
-    const randomX = Math.max(0, Math.floor(Math.random() * maxX));
-    const randomY = Math.max(0, Math.floor(Math.random() * maxY));
+    // Calculate safe boundaries (with some padding from edges)
+    const padding = 20;
+    const maxX = window.innerWidth - btnWidth - padding;
+    const maxY = window.innerHeight - btnHeight - padding;
 
-    // 4. Apply the new position
-    // We set position to fixed to ensure it's relative to the screen, not the div
+    let randomX, randomY;
+    let attempts = 0;
+    const maxAttempts = 20;
+
+    // Keep trying until we find a position that doesn't overlap Yes button
+    do {
+        randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+        randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+        attempts++;
+
+        // Check if this position would overlap with Yes button
+        // Add 50px buffer around Yes button
+        const buffer = 50;
+        const overlapsYes = (
+            randomX < yesRect.right + buffer &&
+            randomX + btnWidth > yesRect.left - buffer &&
+            randomY < yesRect.bottom + buffer &&
+            randomY + btnHeight > yesRect.top - buffer
+        );
+
+        if (!overlapsYes) break;
+    } while (attempts < maxAttempts);
+
+    // Apply new position
     btn.style.position = 'fixed';
     btn.style.left = `${randomX}px`;
     btn.style.top = `${randomY}px`;
-
-    // Optional: Reset any CSS-based transform that might mess with position
     btn.style.transform = 'none';
+
+    // Show a playful message occasionally
+    if (Math.random() < 0.3) {
+        const messages = [
+            "Nope! Try again! 😏",
+            "Button error: Option forbidden! 😜",
+            "Why you want No? 🙄",
+            "Ahha Mildainna! 🙅",
+        ];
+        chat(messages[Math.floor(Math.random() * messages.length)]);
+    }
 }
 
 function celebrate() {
