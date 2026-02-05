@@ -271,6 +271,9 @@ function moveNo() {
     const btn = document.getElementById('no-btn');
     const yesBtn = document.getElementById('yes-btn');
 
+    // Trigger the crying gif (important for mobile since onmouseenter doesn't fire)
+    handleNoEnter();
+
     // Get button dimensions
     const btnWidth = btn.offsetWidth;
     const btnHeight = btn.offsetHeight;
@@ -433,20 +436,26 @@ function handleYesLeave() {
 }
 
 function handleNoEnter() {
+    // Clear any existing timer
     if (cryingTimer) {
         clearTimeout(cryingTimer);
         cryingTimer = null;
     }
-    setFinalGif('crying');
-}
 
-function handleNoLeave() {
-    // Keep crying for 2 seconds even after leaving
+    // Show crying gif
+    setFinalGif('crying');
+
+    // Auto-reset to please gif after 2 seconds (works for mobile where onmouseleave doesn't fire)
     cryingTimer = setTimeout(() => {
-        // Only reset if we haven't moved to YES (which would have cleared this timer)
         setFinalGif('please');
         cryingTimer = null;
     }, 2000);
+}
+
+function handleNoLeave() {
+    // On desktop, this extends the crying a bit more after mouse leaves
+    // Timer is already set in handleNoEnter, so we just let it run
+    // No action needed here - the timer from handleNoEnter will handle the reset
 }
 
 function spawnLilyPetals() {
